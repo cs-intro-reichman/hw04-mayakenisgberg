@@ -28,7 +28,7 @@ public class StringOps {
     public static String capVowelsLowRest (String string)
      {
         String newstr = "";
-        String vowels="aeiou";
+        String vowels="aeiouAEIOU";
         for(int i =0; i<string.length();i++)
         {
                  if (vowels.indexOf(string.charAt(i))!=-1)// is a vowel

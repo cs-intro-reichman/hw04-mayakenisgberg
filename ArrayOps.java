@@ -69,7 +69,7 @@ public class ArrayOps {
             if (array[i+1]<array[i])
             checkincrease = false;
         }
-        if (array[array.length-1]>array[array.length])
+        if (array[array.length-2]>array[array.length-1])
             checkincrease=false;
         //
         for(int i=0;i<array.length-1;i++)// checks decrease
@@ -77,7 +77,7 @@ public class ArrayOps {
             if (array[i+1]>array[i])
             checkdecrease = false;
         }
-        if (array[array.length-1]<array[array.length])
+        if (array[array.length-2]<array[array.length-1])
             checkdecrease=false;
 
         return (checkdecrease|| checkincrease);
