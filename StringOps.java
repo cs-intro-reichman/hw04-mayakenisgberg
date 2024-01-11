@@ -22,8 +22,10 @@ public class StringOps {
     //////                                               ///////
     ////////////////////////////////////////////////////////////
     public static void main(String[] args) {
-        
-    }
+        // int[]array =(allIndexOf("hello world", 'l'));
+        // for(int i=0;i<3;i++)
+        //     System.out.println(array[i]);
+        }
 
     public static String capVowelsLowRest (String string)
      {
@@ -59,71 +61,44 @@ public class StringOps {
         answer=answer+lowerCase(string.charAt(counter));
         counter++;
        }
-       for (int i=counter; i<string.length();i++)
+      
+       while(counter<string.length())
        {
-        answer=answer+upperCase(string.charAt(i));
-        i++;
-       while(string.charAt(i)==32&& counter<string.length())
-        {
-            answer=answer+lowerCase(string.charAt(i));
-            i++;
-        }
-        while(string.charAt(i)==32 && counter<string.length())
-       {
-         i++;
-       }
+            answer=answer+" ";
+            counter++;
+            answer=answer+upperCase(string.charAt(counter));
+            counter++;
 
-    }
+            while (counter<string.length()&& string.charAt(counter)!=32)
+                {
+                    answer=answer+lowerCase(string.charAt(counter));
+                    counter++;
+                }
+        }
         return answer;
     }
-
     public static int[] allIndexOf (String string, char chr) {
-        int[] array = new int[string.length()];
-        String draft=string;
-        int counter=0;
-        for(int i=0;i<string.length();i++)
+       int counter=0;
+        for (int i=0; i<string.length();i++)
         {
             if(string.charAt(i)==chr)
             {
-                array[counter]=draft.indexOf(chr);
                 counter++;
-                draft="";
-                for (int j=0;j<draft.length();j++)
-                {
-                    if (i==j)
-                    {
-                     draft=draft+(string.charAt(i)+1);
-                    }
-                    else
-                    {
-                    draft=draft+string.charAt(i);
-                    }
-                }
-
             }
         }
-        int[] answer = new int[counter];
-        for(int i=0;i<answer.length;i++)
+        int[] array = new int[counter];
+        int j=0;
+        for(int i=0;i<string.length();i++)
         {
-            answer[i]=array[i];
+            if(string.charAt(i)==chr)
+            {            
+                    array[j]=i;
+                    j++;
+            }
         }
-
-        return answer;
+        return array;
     }
-    public static String lowerCase(String s) 
-    {
-        String answer = "";
-        for (int i=0; i<s.length();i++)
-        {
-          char c = s.charAt(i);
-          if (c>=65 && c<=90)
-          {
-                c=(char)(c+32); 
-          }
-            answer=answer+c;
-        }
-        return answer;
-    }
+    
     public static char lowerCase(char s) 
     {
         char c=s;
@@ -134,20 +109,6 @@ public class StringOps {
         return c;
     }
     
-public static String upperCase(String s)
- {
-        String answer = "";
-        for (int i=0; i<s.length();i++)
-        {
-          char c = s.charAt(i);
-          if (c>=97 && c<=122)
-          {
-                c=(char)(c-32); 
-          }
-            answer=answer+c;
-        }
-        return answer;
-    }
     public static char upperCase(char s)
  { 
           char c = s;
@@ -156,18 +117,7 @@ public static String upperCase(String s)
                 c=(char)(c-32); 
           }
         return c;
-    }
-    
-    public static String uniqueChars(String s) {
-        String answer="";
-        for (int i=0; i<s.length();i++)
-        {
-            char c = s.charAt(i);
-            if( c == 32|| answer.indexOf(c)==-1)
-                answer=answer+c;
-        }
-        return answer;
-    }
+    } 
     
 }
 
