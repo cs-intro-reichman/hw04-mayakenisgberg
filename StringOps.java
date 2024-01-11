@@ -21,11 +21,13 @@ public class StringOps {
     //////        in Recitation 3 question 5             ///////
     //////                                               ///////
     ////////////////////////////////////////////////////////////
-    public static void main(String[] args) {
-        int[]array =(allIndexOf("hello world", 'o'));
-        for(int i=0;i<3;i++)
-            System.out.println(array[i]);
-        }
+    public static void main(String[] args) 
+    {
+    // int[] array = allIndexOf("hello world", 'l');
+    // for(int i=-0;i<array.length;i++)
+    //     System.out.println(array[i]);
+    
+    }
 
     public static String capVowelsLowRest (String string)
      {
@@ -64,7 +66,11 @@ public class StringOps {
       
        while(counter<string.length())
        {
-            counter++;
+            while(string.charAt(counter)==32 && counter<string.length())
+                {
+                    counter++;
+                }
+
             answer=answer+upperCase(string.charAt(counter));
             counter++;
 
